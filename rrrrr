@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выдвижные фары</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #111; color: #eee; line-height: 1.6; }
+        nav { background: #222; padding: 15px; text-align: center; }
+        nav a { color: #eee; text-decoration: none; margin: 0 10px; }
+        nav a.active { color: #ff9900; }
+        .container { max-width: 800px; margin: 20px auto; padding: 0 20px; }
+        .page { display: none; }
+        .active-page { display: block; }
+        h1 { color: #ff9900; margin: 20px 0; }
+        img { width: 100%; max-width: 300px; margin: 10px; border-radius: 5px; }
+        .images { display: flex; flex-wrap: wrap; justify-content: center; }
+        footer { text-align: center; padding: 20px; color: #888; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showPage('home')" class="active">Главная</a>
+        <a href="#" onclick="showPage('history')">История</a>
+        <a href="#" onclick="showPage('examples')">Автомобили</a>
+    </nav>
+
+    <div class="container">
+        <div id="home" class="page active-page">
+            <h1>Выдвижные фары</h1>
+            <p>Поп-ап фары — скрытые фары, которые выдвигаются при включении.</p>
+            <div class="images">
+                <img src="https://i.supaimg.com/ca6d15ab-0c9d-41c4-90c0-d6e17d42bdac.jpg" alt="Ваша картинка 1">
+                <img src="https://i.supaimg.com/4f8849d8-18e8-452b-9d11-a183d1695b51.jpg" alt="Ваша картинка 2">
+            </div>
+        </div>
+
+        <div id="history" class="page">
+            <h1>История</h1>
+            <p>Первым автомобилем с выдвижными фарами был Corvette Sting Ray 1963.</p>
+        </div>
+
+        <div id="examples" class="page">
+            <h1>Автомобили с выдвижными фарами</h1>
+            <div class="images">
+                <img src="https://i.supaimg.com/0916dfe8-7d2f-40ba-9c2a-fedb9806a23d.jpg" alt="Ferrari Testarossa">
+                <p>Ferrari Testarossa</p>
+                <img src="https://i.supaimg.com/ad613870-19e3-4947-8fde-0355e8d42763.jpg" alt="Lamborghini Countach">
+                <p>Lamborghini Countach</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p> 2025 Сайт о выдвижных фарах</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active-page');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
